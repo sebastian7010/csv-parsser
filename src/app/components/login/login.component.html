@@ -1,0 +1,19 @@
+<body>
+    <!-- Wrapper -->
+    <div class="wrapper">
+        <!-- Formulario -->
+        <form (ngSubmit)="Login()" class="login">
+            <h2>iniciar sesion</h2>
+            <!-- Contenedor del Formulario -->
+            <div class="login-container">
+                <label>Usuario</label>
+                <input [(ngModel)]="email" name="email" type="text" placeholder="Ingresar Usuario">
+
+                <label>Contraseña</label>
+                <input [(ngModel)]="password" name="password" type="password" placeholder="Ingresar Contraseña">
+
+                <input type="submit" value="Login" class="primary_action">
+            </div>
+        </form>
+    </div>
+</body>
