@@ -16,7 +16,8 @@ export class LoginComponent {
   email: string =''
   password: string = ''
 
-  constructor(private authservice : AuthService, private router: Router) {}
+  constructor(private authservice : AuthService, 
+              private router: Router) {}
   
 
   Login():void{
@@ -24,6 +25,8 @@ export class LoginComponent {
       response => {
         if(response.ok){
           Swal.fire('user login',response.mg,)
+          sessionStorage.setItem('token', response.token)
+          this.router.navigate(['/csv-home'])
         } else{
           Swal.fire('error',response.error.msg,'error')
         }
