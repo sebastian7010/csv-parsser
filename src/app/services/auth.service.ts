@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
+import { Token } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 
@@ -9,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   private apiUrl = "http://localhost:4001/api"
-  constructor(private http :HttpClient) { }
+  constructor(private http :HttpClient, private router:Router) { }
 
   register(email: string,password: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/register`, {email, password})
@@ -27,6 +29,7 @@ export class AuthService {
     return !!sessionStorage.getItem('token')
   }
   logout(): void{
-    sessionStorage.removeItem
+    sessionStorage.removeItem('token')
+    this.router.navigate(["/login"])
   }
 }

@@ -21,7 +21,7 @@
             <a routerLink="/file" *ngIf="isLoggedIn">
                 <li>file</li>
             </a>
-            <li><button class="logout-button" *ngIf="isLoggedIn" (clic)="logout">logout</button></li>
+            <li><button class="logout-button" *ngIf="isLoggedIn" (click)="logout()">logout</button></li>
         </ul>
     </nav>
 </header>
